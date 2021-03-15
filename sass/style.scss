@@ -1,3 +1,46 @@
 body{
   background: rgb(156, 223, 171);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.header{
+  margin: 20px auto;
+  max-width: 720px;
+}
+
+.todolist{
+  &__wrapper{
+    background: coral;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    padding: 20px;
+    border-radius: 15px;
+  }  
+  &__title{
+    align-self: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px 0 20px;
+  }
+  &__item{
+    font-size: 16px;
+    font-weight: 400;
+    margin: 20px 10px;
+    background: #fff8dc;
+    opacity: .8;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  &__item:first-child{
+    margin: 0 10px;
+  }
+  &__item:last-child{
+    background: #68634c;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
 }
