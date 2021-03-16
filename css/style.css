@@ -1,6 +1,7 @@
 body {
-  background: #9cdfab;
+  background: linear-gradient(120deg, #7befb2, #1e824c);
   font-family: 'Noto Sans JP', sans-serif;
+  min-height: 100vh;
 }
 
 .header {
@@ -29,30 +30,55 @@ body {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 700;
   margin: 10px 0 20px;
+}
+
+.todolist__inputField {
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  background: white;
+  margin: 20px 10px;
+}
+
+.todolist__addTask {
+  border: 1px solid black;
+  font-size: 30px;
+  cursor: pointer;
+  background: white;
+  color: #1e824c;
+  margin: 10px 10px 20px;
+}
+
+.todolist__filter {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.todolist__list {
+  border-top: 1px solid black;
 }
 
 .todolist__item {
   font-size: 16px;
   font-weight: 400;
+  font-style: italic;
   margin: 20px 10px;
   background: #fff8dc;
-  opacity: .8;
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
-.todolist__item:first-child {
-  margin: 0 10px;
-}
-
-.todolist__item:last-child {
-  background: #68634c;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+.todolist__item.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 /*# sourceMappingURL=style.css.map */

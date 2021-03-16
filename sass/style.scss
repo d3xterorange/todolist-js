@@ -1,6 +1,7 @@
 body{
-  background: rgb(156, 223, 171);
+  background: linear-gradient(120deg, #7befb2, #1e824c);
   font-family: 'Noto Sans JP', sans-serif;
+  min-height: 100vh;
 }
 
 .header{
@@ -20,27 +21,52 @@ body{
   }  
   &__title{
     align-self: center;
-    font-size: 24px;
+    font-size: 34px;
     font-weight: 700;
     margin: 10px 0 20px;
   }
+  &__inputField{
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    background: white;
+    margin: 20px 10px;
+  }
+  &__addTask{
+    border: 1px solid black;
+    font-size: 30px;
+    cursor: pointer;
+    background: white;
+    color: #1e824c;
+    margin: 10px 10px 20px;
+  }
+
+  &__filter{
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  &__list{
+    border-top: 1px solid black;
+  }
+
   &__item{
     font-size: 16px;
     font-weight: 400;
+    font-style: italic;
     margin: 20px 10px;
     background: #fff8dc;
-    opacity: .8;
+    //opacity: .8;
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease;
   }
-  &__item:first-child{
-    margin: 0 10px;
-  }
-  &__item:last-child{
-    background: #68634c;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+
+  &__item.done{
+    text-decoration: line-through;
+    opacity: 0.5;
+    transition: all 0.4s ease;
   }
 }

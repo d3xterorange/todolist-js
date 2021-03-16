@@ -8,25 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset200802.css">
   <link rel="stylesheet" href="css/style.css"> 
-  <script src="js/script.js"></script>
-  <title>Document</title>
+  <title>Todolist</title>
 </head>
 <body>
   <header class="header">
     <div class="todolist__wrapper">
       <h1 class="todolist__title">TodoList</h1>
-      <ul>
-        <li class="todolist__item">
-          1. Тестовая задача на день, для отрисовки стилей
-        </li>
-        <li class="todolist__item">
-          2. Тестовая задача на день, для отрисовки стилей
-        </li>
-        <li class="todolist__item">
-          Добавить задачу
-        </li>
-      </ul>
+      <input type="text" class="todolist__inputField" placeholder="Введите задачу" tabindex="0" autofocus>
+      <button class="todolist__addTask">Добавить задачу</button>
+      <select name="tasks" class="todolist__filter">
+        <option value="all">Все</option>
+        <option value="done">Выполненные</option>
+        <option value="undone">Невыполненные</option>
+      </select>
+      <ul class='todolist__list'></ul>
     </div>
   </header>
+  <script src="js/script.js"></script>
 </body>
 </html>
