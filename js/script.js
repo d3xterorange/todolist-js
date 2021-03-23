@@ -2,7 +2,10 @@ const addTaskBtn = document.querySelector('.todolist__addTask');
 const taskList = document.querySelector('.todolist__list');
 const inputTask = document.querySelector('.todolist__inputField');
 const item = document.querySelector('.todolist__item');
-const selectedFilter = document.querySelector('.todolist__filter')
+const selectedFilter = document.querySelector('.todolist__filter');
+let arrTodo = [];
+
+console.log(arrTodo);
 
 addTaskBtn.addEventListener('click', addItem)
 inputTask.addEventListener('keydown', function(e){
@@ -15,7 +18,8 @@ selectedFilter.addEventListener('click', filterList)
 
 function addItem(e){
     todoItem = document.createElement('li');
-    todoItem.innerText = inputTask.value;
+    arrTodo.push(inputTask.value);
+    todoItem.innerText = arrTodo.pop();
     todoItem.classList.add('todolist__item');
     taskList.appendChild(todoItem);
     inputTask.value='';
