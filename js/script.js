@@ -3,9 +3,6 @@ const taskList = document.querySelector('.todolist__list');
 const inputTask = document.querySelector('.todolist__inputField');
 const item = document.querySelector('.todolist__item');
 const selectedFilter = document.querySelector('.todolist__filter');
-let arrTodo = [];
-
-console.log(arrTodo);
 
 addTaskBtn.addEventListener('click', addItem)
 inputTask.addEventListener('keydown', function(e){
@@ -18,9 +15,9 @@ selectedFilter.addEventListener('click', filterList)
 
 function addItem(e){
     todoItem = document.createElement('li');
-    arrTodo.push(inputTask.value);
-    todoItem.innerText = arrTodo.pop();
+    todoItem.innerText = inputTask.value;
     todoItem.classList.add('todolist__item');
+    savetoLocalStorage(inputTask.value);
     taskList.appendChild(todoItem);
     inputTask.value='';
 }
@@ -56,4 +53,11 @@ function filterList(e){
             }
        }
     })
+}
+
+function savetoLocalStorage(item) {
+    let arrTodo = [];
+    arrTodo.push(item);
+    localStorage.setItem('todolist__itens', arrTodo);
+    localStorage.clear();
 }
