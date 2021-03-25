@@ -59,5 +59,4 @@ function savetoLocalStorage(item) {
     let arrTodo = [];
     arrTodo.push(item);
     localStorage.setItem('todolist__itens', arrTodo);
-    localStorage.clear();
 }
