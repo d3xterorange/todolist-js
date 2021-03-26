@@ -10,7 +10,7 @@ inputTask.addEventListener('keydown', function(e){
 })
 
 taskList.addEventListener('click', doneItem);
-selectedFilter.addEventListener('click', filterList)
+selectedFilter.addEventListener('change', filterList)
 
 
 function addItem(e){
