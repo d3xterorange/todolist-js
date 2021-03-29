@@ -1,62 +1,36 @@
-const addTaskBtn = document.querySelector('.todolist__addTask');
-const taskList = document.querySelector('.todolist__list');
-const inputTask = document.querySelector('.todolist__inputField');
-const item = document.querySelector('.todolist__item');
-const selectedFilter = document.querySelector('.todolist__filter');
+const $form = document.querySelector('.js-form')
+const $input = document.querySelector('.js-input')
+const $list = document.querySelector('.js-list')
 
-addTaskBtn.addEventListener('click', addItem)
-inputTask.addEventListener('keydown', function(e){
-    if (e.code == 'Enter') addItem();
-})
+$form.addEventListener('submit', addItem)
 
-taskList.addEventListener('click', doneItem);
-selectedFilter.addEventListener('change', filterList)
+const ITEMS = [
+    // {value: '123', isCompleted: true}
+]
 
+function addItem(e) {
+    e.preventDefault()
 
-function addItem(e){
-    todoItem = document.createElement('li');
-    todoItem.innerText = inputTask.value;
-    todoItem.classList.add('todolist__item');
-    savetoLocalStorage(inputTask.value);
-    taskList.appendChild(todoItem);
-    inputTask.value='';
+    ITEMS.push({ value: $input.value })
+
+    $input.value = null
+
+    draw()
 }
 
-function doneItem(e){
-    const item = e.target;
-    if (item.classList[0] == 'todolist__item') item.classList.toggle('done');
+window.markComplete = function(index)  {
+    ITEMS[index].isCompleted = true
+
+    draw()
 }
 
-function filterList(e){
-    const todolist = taskList.childNodes;
-    todolist.forEach(function(item){
-       switch(e.target.value){
-            case 'all': {
-                item.style.display = 'list-item';
-                break;
-            }
-            case 'done':{
-                if (item.classList.contains('done')){
-                item.style.display = 'list-item';
-                } else {
-                item.style.display = 'none';
-                }
-                break;
-            }
-            case 'undone': {
-                if (!item.classList.contains('done')){
-                item.style.display = 'list-item';
-                } else {
-                item.style.display = 'none';
-                }
-                break;
-            }
-       }
+function draw() {
+    $list.innerHTML = ''
+
+    ITEMS.forEach(item => {
+        $list.innerHTML += `<li class="${item.isCompleted ? 'is__completed' : ''}">${item.value}</li>`
     })
 }
 
-function savetoLocalStorage(item) {
-    let arrTodo = [];
-    arrTodo.push(item);
-    localStorage.setItem('todolist__itens', arrTodo);
-}
+ 
+draw()
